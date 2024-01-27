@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Quiz_Millionaire
 {
-    public partial class Form : System.Windows.Forms.Form
+    public partial class StartForm : Form
     {
-        public Form()
+        public StartForm()
         {
             InitializeComponent();
         }
