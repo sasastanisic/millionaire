@@ -7,7 +7,7 @@ namespace Quiz_Millionaire
 {
     class DatabaseManager
     {
-        private readonly string connectionString = $"Server=localhost;Database={DatabaseConfig.DBName};User ID={DatabaseConfig.UserID};Password={DatabaseConfig.Password}";
+        public static readonly string connectionString = $"Server=localhost;Database={DatabaseConfig.DBName};User ID={DatabaseConfig.UserID};Password={DatabaseConfig.Password}";
 
     }
 }

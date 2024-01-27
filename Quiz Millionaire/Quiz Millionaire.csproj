@@ -106,8 +106,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Answer.cs" />
     <Compile Include="Controller\Database\DatabaseConfig.cs" />
     <Compile Include="Controller\Database\DatabaseManager.cs" />
+    <Compile Include="Controller\Quiz\QuizController.cs" />
+    <Compile Include="Model\Question.cs" />
+    <Compile Include="View\QuizForm\QuizForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\QuizForm\QuizForm.Designer.cs">
+      <DependentUpon>QuizForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StartForm\StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +125,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\QuizForm\QuizForm.resx">
+      <DependentUpon>QuizForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\StartForm\StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,8 +154,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
