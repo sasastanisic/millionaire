@@ -36,6 +36,8 @@ namespace Quiz_Millionaire
             this.answerThree = new MaterialSkin.Controls.MaterialRadioButton();
             this.answerFour = new MaterialSkin.Controls.MaterialRadioButton();
             this.SubmitButton = new Guna.UI2.WinForms.Guna2Button();
+            this.FiftyFiftyButton = new Guna.UI2.WinForms.Guna2Button();
+            this.FriendHelpButton = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // questionLabel
@@ -131,11 +133,49 @@ namespace Quiz_Millionaire
             this.SubmitButton.Text = "Submit";
             this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
+            // FiftyFiftyButton
+            // 
+            this.FiftyFiftyButton.Animated = true;
+            this.FiftyFiftyButton.BorderRadius = 10;
+            this.FiftyFiftyButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.FiftyFiftyButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.FiftyFiftyButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.FiftyFiftyButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.FiftyFiftyButton.FillColor = System.Drawing.Color.Navy;
+            this.FiftyFiftyButton.Font = new System.Drawing.Font("Verdana", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.FiftyFiftyButton.ForeColor = System.Drawing.Color.White;
+            this.FiftyFiftyButton.Location = new System.Drawing.Point(137, 473);
+            this.FiftyFiftyButton.Name = "FiftyFiftyButton";
+            this.FiftyFiftyButton.Size = new System.Drawing.Size(124, 52);
+            this.FiftyFiftyButton.TabIndex = 10;
+            this.FiftyFiftyButton.Text = "50 - 50";
+            this.FiftyFiftyButton.Click += new System.EventHandler(this.FiftyFiftyButton_Click);
+            // 
+            // FriendHelpButton
+            // 
+            this.FriendHelpButton.Animated = true;
+            this.FriendHelpButton.BorderRadius = 10;
+            this.FriendHelpButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.FriendHelpButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.FriendHelpButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.FriendHelpButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.FriendHelpButton.FillColor = System.Drawing.Color.Navy;
+            this.FriendHelpButton.Font = new System.Drawing.Font("Verdana", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.FriendHelpButton.ForeColor = System.Drawing.Color.White;
+            this.FriendHelpButton.Location = new System.Drawing.Point(561, 473);
+            this.FriendHelpButton.Name = "FriendHelpButton";
+            this.FriendHelpButton.Size = new System.Drawing.Size(124, 52);
+            this.FriendHelpButton.TabIndex = 11;
+            this.FriendHelpButton.Text = "BF";
+            this.FriendHelpButton.Click += new System.EventHandler(this.FriendHelpButton_Click);
+            // 
             // QuizForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(863, 511);
+            this.ClientSize = new System.Drawing.Size(863, 565);
+            this.Controls.Add(this.FriendHelpButton);
+            this.Controls.Add(this.FiftyFiftyButton);
             this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.answerFour);
             this.Controls.Add(this.answerThree);
@@ -159,5 +199,7 @@ namespace Quiz_Millionaire
         private MaterialSkin.Controls.MaterialRadioButton answerThree;
         private MaterialSkin.Controls.MaterialRadioButton answerFour;
         private Guna.UI2.WinForms.Guna2Button SubmitButton;
+        private Guna.UI2.WinForms.Guna2Button FiftyFiftyButton;
+        private Guna.UI2.WinForms.Guna2Button FriendHelpButton;
     }
 }

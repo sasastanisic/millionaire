@@ -38,6 +38,36 @@ namespace Quiz_Millionaire
             }
         }
 
+        private void FiftyFiftyButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FriendHelpButton_Click(object sender, EventArgs e)
+        {
+            double probabilityOfCorrectAnswer = 0.7;
+            Random random = new Random();
+
+            int randomRadioButtonIndex = random.Next(radioButtons.Count);
+
+            if (random.NextDouble() > probabilityOfCorrectAnswer)
+            {
+                radioButtons[randomRadioButtonIndex].Checked = true;
+            }
+            else
+            {
+                radioButtons.ForEach(radioButton => radioButton.Checked = false);
+                int correctAnswerIndex = currentAnswers.FindIndex(answer => answer.CorrectAnswer);
+
+                if (correctAnswerIndex >= 0 && correctAnswerIndex < radioButtons.Count)
+                {
+                    radioButtons[correctAnswerIndex].Checked = true;
+                }
+            }
+
+            FriendHelpButton.Enabled = false;
+        }
+
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             bool answered = false;
@@ -52,7 +82,7 @@ namespace Quiz_Millionaire
                     { }
                     else
                     {
-                        MessageBox.Show("Answer isn't correct! You lost!");
+                        MessageBox.Show("Answer isn't correct! You lost!", "Incorrect answer", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                         StartForm startForm = new StartForm();
                         Hide();
@@ -69,7 +99,7 @@ namespace Quiz_Millionaire
 
             if (!answered)
             {
-                MessageBox.Show("You must answer the question!");
+                MessageBox.Show("You must answer the question!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
