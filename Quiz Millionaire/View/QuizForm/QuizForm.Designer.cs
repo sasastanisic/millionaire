@@ -31,17 +31,18 @@ namespace Quiz_Millionaire
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuizForm));
             this.questionLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.answerOne = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.answerTwo = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.answerThree = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.answerFour = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.answerOne = new MaterialSkin.Controls.MaterialRadioButton();
+            this.answerTwo = new MaterialSkin.Controls.MaterialRadioButton();
+            this.answerThree = new MaterialSkin.Controls.MaterialRadioButton();
+            this.answerFour = new MaterialSkin.Controls.MaterialRadioButton();
+            this.SubmitButton = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // questionLabel
             // 
             this.questionLabel.BackColor = System.Drawing.Color.Transparent;
             this.questionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.questionLabel.Location = new System.Drawing.Point(198, 69);
+            this.questionLabel.Location = new System.Drawing.Point(164, 59);
             this.questionLabel.Name = "questionLabel";
             this.questionLabel.Size = new System.Drawing.Size(26, 27);
             this.questionLabel.TabIndex = 0;
@@ -50,84 +51,92 @@ namespace Quiz_Millionaire
             // answerOne
             // 
             this.answerOne.AutoSize = true;
-            this.answerOne.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.answerOne.CheckedState.BorderThickness = 0;
-            this.answerOne.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.answerOne.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.answerOne.CheckedState.InnerOffset = -4;
-            this.answerOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.answerOne.Depth = 0;
             this.answerOne.Location = new System.Drawing.Point(45, 147);
+            this.answerOne.Margin = new System.Windows.Forms.Padding(0);
+            this.answerOne.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.answerOne.MouseState = MaterialSkin.MouseState.HOVER;
             this.answerOne.Name = "answerOne";
-            this.answerOne.Size = new System.Drawing.Size(39, 24);
-            this.answerOne.TabIndex = 1;
+            this.answerOne.Ripple = true;
+            this.answerOne.Size = new System.Drawing.Size(44, 37);
+            this.answerOne.TabIndex = 5;
+            this.answerOne.TabStop = true;
             this.answerOne.Text = "1";
-            this.answerOne.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.answerOne.UncheckedState.BorderThickness = 2;
-            this.answerOne.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.answerOne.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.answerOne.UseVisualStyleBackColor = true;
             // 
             // answerTwo
             // 
             this.answerTwo.AutoSize = true;
-            this.answerTwo.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.answerTwo.CheckedState.BorderThickness = 0;
-            this.answerTwo.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.answerTwo.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.answerTwo.CheckedState.InnerOffset = -4;
-            this.answerTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.answerTwo.Location = new System.Drawing.Point(45, 237);
+            this.answerTwo.Depth = 0;
+            this.answerTwo.Location = new System.Drawing.Point(45, 224);
+            this.answerTwo.Margin = new System.Windows.Forms.Padding(0);
+            this.answerTwo.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.answerTwo.MouseState = MaterialSkin.MouseState.HOVER;
             this.answerTwo.Name = "answerTwo";
-            this.answerTwo.Size = new System.Drawing.Size(39, 24);
-            this.answerTwo.TabIndex = 2;
+            this.answerTwo.Ripple = true;
+            this.answerTwo.Size = new System.Drawing.Size(44, 37);
+            this.answerTwo.TabIndex = 6;
+            this.answerTwo.TabStop = true;
             this.answerTwo.Text = "2";
-            this.answerTwo.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.answerTwo.UncheckedState.BorderThickness = 2;
-            this.answerTwo.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.answerTwo.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.answerTwo.UseVisualStyleBackColor = true;
             // 
             // answerThree
             // 
             this.answerThree.AutoSize = true;
-            this.answerThree.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.answerThree.CheckedState.BorderThickness = 0;
-            this.answerThree.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.answerThree.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.answerThree.CheckedState.InnerOffset = -4;
-            this.answerThree.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.answerThree.Depth = 0;
             this.answerThree.Location = new System.Drawing.Point(524, 147);
+            this.answerThree.Margin = new System.Windows.Forms.Padding(0);
+            this.answerThree.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.answerThree.MouseState = MaterialSkin.MouseState.HOVER;
             this.answerThree.Name = "answerThree";
-            this.answerThree.Size = new System.Drawing.Size(39, 24);
-            this.answerThree.TabIndex = 3;
+            this.answerThree.Ripple = true;
+            this.answerThree.Size = new System.Drawing.Size(44, 37);
+            this.answerThree.TabIndex = 7;
+            this.answerThree.TabStop = true;
             this.answerThree.Text = "3";
-            this.answerThree.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.answerThree.UncheckedState.BorderThickness = 2;
-            this.answerThree.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.answerThree.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.answerThree.UseVisualStyleBackColor = true;
             // 
             // answerFour
             // 
             this.answerFour.AutoSize = true;
-            this.answerFour.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.answerFour.CheckedState.BorderThickness = 0;
-            this.answerFour.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.answerFour.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.answerFour.CheckedState.InnerOffset = -4;
-            this.answerFour.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.answerFour.Location = new System.Drawing.Point(524, 237);
+            this.answerFour.Depth = 0;
+            this.answerFour.Location = new System.Drawing.Point(524, 224);
+            this.answerFour.Margin = new System.Windows.Forms.Padding(0);
+            this.answerFour.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.answerFour.MouseState = MaterialSkin.MouseState.HOVER;
             this.answerFour.Name = "answerFour";
-            this.answerFour.Size = new System.Drawing.Size(39, 24);
-            this.answerFour.TabIndex = 4;
+            this.answerFour.Ripple = true;
+            this.answerFour.Size = new System.Drawing.Size(44, 37);
+            this.answerFour.TabIndex = 8;
+            this.answerFour.TabStop = true;
             this.answerFour.Text = "4";
-            this.answerFour.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.answerFour.UncheckedState.BorderThickness = 2;
-            this.answerFour.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.answerFour.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.answerFour.UseVisualStyleBackColor = true;
+            // 
+            // SubmitButton
+            // 
+            this.SubmitButton.Animated = true;
+            this.SubmitButton.AutoRoundedCorners = true;
+            this.SubmitButton.BorderColor = System.Drawing.Color.Transparent;
+            this.SubmitButton.BorderRadius = 31;
+            this.SubmitButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SubmitButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SubmitButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SubmitButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SubmitButton.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SubmitButton.ForeColor = System.Drawing.Color.White;
+            this.SubmitButton.Location = new System.Drawing.Point(354, 338);
+            this.SubmitButton.Name = "SubmitButton";
+            this.SubmitButton.Size = new System.Drawing.Size(144, 65);
+            this.SubmitButton.TabIndex = 9;
+            this.SubmitButton.Text = "Submit";
+            this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
             // QuizForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 523);
+            this.ClientSize = new System.Drawing.Size(863, 511);
+            this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.answerFour);
             this.Controls.Add(this.answerThree);
             this.Controls.Add(this.answerTwo);
@@ -135,7 +144,7 @@ namespace Quiz_Millionaire
             this.Controls.Add(this.questionLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QuizForm";
-            this.Text = "QuizForm";
+            this.Text = "Quiz";
             this.Load += new System.EventHandler(this.QuizForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -145,9 +154,10 @@ namespace Quiz_Millionaire
         #endregion
 
         private Guna.UI2.WinForms.Guna2HtmlLabel questionLabel;
-        private Guna.UI2.WinForms.Guna2RadioButton answerOne;
-        private Guna.UI2.WinForms.Guna2RadioButton answerTwo;
-        private Guna.UI2.WinForms.Guna2RadioButton answerThree;
-        private Guna.UI2.WinForms.Guna2RadioButton answerFour;
+        private MaterialSkin.Controls.MaterialRadioButton answerOne;
+        private MaterialSkin.Controls.MaterialRadioButton answerTwo;
+        private MaterialSkin.Controls.MaterialRadioButton answerThree;
+        private MaterialSkin.Controls.MaterialRadioButton answerFour;
+        private Guna.UI2.WinForms.Guna2Button SubmitButton;
     }
 }
