@@ -40,7 +40,27 @@ namespace Quiz_Millionaire
 
         private void FiftyFiftyButton_Click(object sender, EventArgs e)
         {
+            List<Answer> remainingAnswers = currentAnswers.ToList();
 
+            int correctAnswerIndex = remainingAnswers.FindIndex(answer => answer.CorrectAnswer);
+            int firstIndexToHide;
+            int secondIndexToHide;
+
+            do
+            {
+                firstIndexToHide = new Random().Next(remainingAnswers.Count);
+            } while (firstIndexToHide == correctAnswerIndex);
+
+            radioButtons[firstIndexToHide].Visible = false;
+
+            do
+            {
+                secondIndexToHide = new Random().Next(remainingAnswers.Count);
+            } while (secondIndexToHide == correctAnswerIndex || !radioButtons[secondIndexToHide].Visible);
+
+            radioButtons[secondIndexToHide].Visible = false;
+
+            FiftyFiftyButton.Enabled = false;
         }
 
         private void FriendHelpButton_Click(object sender, EventArgs e)
@@ -92,6 +112,7 @@ namespace Quiz_Millionaire
 
                     LoadNextQuestion();
                     radioButton.Checked = false;
+                    radioButtons.ForEach(rb => rb.Visible = true);
 
                     break;
                 }
