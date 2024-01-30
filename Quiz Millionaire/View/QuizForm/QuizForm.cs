@@ -7,6 +7,7 @@ namespace Quiz_Millionaire
 {
     public partial class QuizForm : Form
     {
+        private readonly string PlayerName;
         private readonly QuizController quizController;
         private Question currentQuestion;
         private int currentQuestionNumber;
@@ -32,13 +33,15 @@ namespace Quiz_Millionaire
         private int prizeMoney = 0;
         private int guaranteedPrizeMoney = 0;
 
-        public QuizForm()
+        public QuizForm(string playerName)
         {
             InitializeComponent();
+            PlayerName = playerName;
             quizController = new QuizController();
             currentQuestionNumber = 1;
             radioButtons = new List<RadioButton> { answerOne, answerTwo, answerThree, answerFour };
             questionNumberLabel.Text = $"Q {currentQuestionNumber} / {NUMBER_OF_QUESTIONS}";
+            playerLabel.Text = $"{PlayerName}";
             prizeMoneyLabel.Text = "Prize: $0 ($0)";
         }
 
@@ -147,12 +150,14 @@ namespace Quiz_Millionaire
                             SubmitButton.Enabled = false;
                             FinishQuizButton.Enabled = false;
                             MessageBox.Show("You've become a millionaire!", "CONGRATULATIONS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            quizController.SaveQuizResults(PlayerName, correctAnswersCount, prizeMoney);
                             BackToStart();
                         }
                     }
                     else
                     {
                         MessageBox.Show($"Answer isn't correct! You earned ${guaranteedPrizeMoney}!", "Incorrect answer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        quizController.SaveQuizResults(PlayerName, correctAnswersCount, guaranteedPrizeMoney);
                         BackToStart();
                     }
 
@@ -198,6 +203,7 @@ namespace Quiz_Millionaire
         private void FinishQuizButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show($"You earned ${prizeMoney}!", "Quiz finished", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            quizController.SaveQuizResults(PlayerName, correctAnswersCount, prizeMoney);
             BackToStart();
         }
 

@@ -42,6 +42,7 @@ namespace Quiz_Millionaire
             this.progressBar = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.questionNumberLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.prizeMoneyLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.playerLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SuspendLayout();
             // 
             // questionLabel
@@ -220,11 +221,22 @@ namespace Quiz_Millionaire
             this.prizeMoneyLabel.TabIndex = 15;
             this.prizeMoneyLabel.Text = "Prize: $0 ($0)";
             // 
+            // playerLabel
+            // 
+            this.playerLabel.BackColor = System.Drawing.Color.Transparent;
+            this.playerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.playerLabel.Location = new System.Drawing.Point(520, 30);
+            this.playerLabel.Name = "playerLabel";
+            this.playerLabel.Size = new System.Drawing.Size(64, 27);
+            this.playerLabel.TabIndex = 16;
+            this.playerLabel.Text = "Player";
+            // 
             // QuizForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1192, 758);
+            this.Controls.Add(this.playerLabel);
             this.Controls.Add(this.prizeMoneyLabel);
             this.Controls.Add(this.questionNumberLabel);
             this.Controls.Add(this.progressBar);
@@ -260,5 +272,6 @@ namespace Quiz_Millionaire
         private Guna.UI2.WinForms.Guna2ProgressBar progressBar;
         private Guna.UI2.WinForms.Guna2HtmlLabel questionNumberLabel;
         private Guna.UI2.WinForms.Guna2HtmlLabel prizeMoneyLabel;
+        private Guna.UI2.WinForms.Guna2HtmlLabel playerLabel;
     }
 }

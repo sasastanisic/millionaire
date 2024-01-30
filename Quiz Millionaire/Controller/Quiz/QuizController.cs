@@ -1,9 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Quiz_Millionaire
 {
@@ -71,6 +67,25 @@ namespace Quiz_Millionaire
             }
 
             return answers;
+        }
+
+        public void SaveQuizResults(string playerName, int correctAnswers, int prize)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "INSERT INTO quiz (player, correctAnswers, prize) VALUES (@player, @correctAnswers, @prize)";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@player", playerName);
+                    command.Parameters.AddWithValue("@correctAnswers", correctAnswers);
+                    command.Parameters.AddWithValue("@prize", prize);
+
+                    command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
