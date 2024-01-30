@@ -18,10 +18,20 @@ namespace Quiz_Millionaire
             {
                 PlayerName = playerNameTextBox.Text;
 
-                QuizForm quizForm = new QuizForm(PlayerName);
-                Hide();
-                quizForm.ShowDialog();
-                Close();
+                if (PlayerName.Equals("admin", StringComparison.OrdinalIgnoreCase))
+                {
+                    QuestionForm questionForm = new QuestionForm();
+                    Hide();
+                    questionForm.ShowDialog();
+                    Close();
+                }
+                else
+                {
+                    QuizForm quizForm = new QuizForm(PlayerName);
+                    Hide();
+                    quizForm.ShowDialog();
+                    Close();
+                }
             }
             else
             {

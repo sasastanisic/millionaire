@@ -15,21 +15,7 @@ namespace Quiz_Millionaire
         private int correctAnswersCount = 0;
         private readonly List<RadioButton> radioButtons;
         private readonly static int NUMBER_OF_QUESTIONS = 12;
-        private readonly Dictionary<int, int> prizeMoneyValues = new Dictionary<int, int>
-        {
-            { 1, 500 },
-            { 2, 1000 },
-            { 3, 2000 },
-            { 4, 5000 },
-            { 5, 10000 },
-            { 6, 20000 },
-            { 7, 50000 },
-            { 8, 75000 },
-            { 9, 150000 },
-            { 10, 250000 },
-            { 11, 500000 },
-            { 12, 1000000 },
-        };
+        private readonly Dictionary<int, int> prizeMoneyValues;
         private int prizeMoney = 0;
         private int guaranteedPrizeMoney = 0;
 
@@ -43,6 +29,21 @@ namespace Quiz_Millionaire
             questionNumberLabel.Text = $"Q {currentQuestionNumber} / {NUMBER_OF_QUESTIONS}";
             playerLabel.Text = $"{PlayerName}";
             prizeMoneyLabel.Text = "Prize: $0 ($0)";
+            prizeMoneyValues = new Dictionary<int, int>
+            {
+                { 1, 500 },
+                { 2, 1000 },
+                { 3, 2000 },
+                { 4, 5000 },
+                { 5, 10000 },
+                { 6, 20000 },
+                { 7, 50000 },
+                { 8, 75000 },
+                { 9, 150000 },
+                { 10, 250000 },
+                { 11, 500000 },
+                { 12, 1000000 }
+            };
         }
 
         private void QuizForm_Load(object sender, EventArgs e)

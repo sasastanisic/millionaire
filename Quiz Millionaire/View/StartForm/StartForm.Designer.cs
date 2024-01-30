@@ -73,8 +73,8 @@ namespace Quiz_Millionaire
             // 
             this.playerNameLabel.AutoSize = true;
             this.playerNameLabel.Depth = 0;
-            this.playerNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.playerNameLabel.Location = new System.Drawing.Point(268, 139);
+            this.playerNameLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.playerNameLabel.Location = new System.Drawing.Point(267, 139);
             this.playerNameLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.playerNameLabel.Name = "playerNameLabel";
             this.playerNameLabel.Size = new System.Drawing.Size(91, 19);
