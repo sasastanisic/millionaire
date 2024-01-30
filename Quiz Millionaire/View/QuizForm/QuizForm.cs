@@ -9,14 +9,19 @@ namespace Quiz_Millionaire
     {
         private readonly QuizController quizController;
         private Question currentQuestion;
+        private int currentQuestionNumber;
         private List<Answer> currentAnswers;
+        private int correctAnswersCount = 0;
         private readonly List<RadioButton> radioButtons;
+        private readonly static int NUMBER_OF_QUESTIONS = 12;
 
         public QuizForm()
         {
             InitializeComponent();
             quizController = new QuizController();
+            currentQuestionNumber = 1;
             radioButtons = new List<RadioButton> { answerOne, answerTwo, answerThree, answerFour };
+            questionNumberLabel.Text = $"Q {currentQuestionNumber} / {NUMBER_OF_QUESTIONS}";
         }
 
         private void QuizForm_Load(object sender, EventArgs e)
@@ -99,7 +104,29 @@ namespace Quiz_Millionaire
                     answered = true;
 
                     if ((bool)radioButton.Tag)
-                    { }
+                    {
+                        correctAnswersCount++;
+                        currentQuestionNumber++;
+
+                        UpdateProgressBar();
+                        UpdateQuestionNumberLabel();
+
+                        if (currentQuestionNumber <= NUMBER_OF_QUESTIONS)
+                        {
+                            LoadNextQuestion();
+                        }
+                        else
+                        {
+                            questionNumberLabel.Text = "";
+                            SubmitButton.Enabled = false;
+                            MessageBox.Show("You've become a millionaire!", "CONGRATULATIONS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            StartForm startForm = new StartForm();
+                            Hide();
+                            startForm.ShowDialog();
+                            Close();
+                        }
+                    }
                     else
                     {
                         MessageBox.Show("Answer isn't correct! You lost!", "Incorrect answer", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -110,7 +137,6 @@ namespace Quiz_Millionaire
                         Close();
                     }
 
-                    LoadNextQuestion();
                     radioButton.Checked = false;
                     radioButtons.ForEach(rb => rb.Visible = true);
 
@@ -122,6 +148,16 @@ namespace Quiz_Millionaire
             {
                 MessageBox.Show("You must answer the question!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void UpdateProgressBar()
+        {
+            progressBar.Value = (correctAnswersCount * 100) / NUMBER_OF_QUESTIONS;
+        }
+
+        private void UpdateQuestionNumberLabel()
+        {
+            questionNumberLabel.Text = $"Q {currentQuestionNumber} / {NUMBER_OF_QUESTIONS}";
         }
     }
 }

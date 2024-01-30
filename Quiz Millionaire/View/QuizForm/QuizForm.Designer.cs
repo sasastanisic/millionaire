@@ -38,23 +38,26 @@ namespace Quiz_Millionaire
             this.SubmitButton = new Guna.UI2.WinForms.Guna2Button();
             this.FiftyFiftyButton = new Guna.UI2.WinForms.Guna2Button();
             this.FriendHelpButton = new Guna.UI2.WinForms.Guna2Button();
+            this.FinishQuizButton = new Guna.UI2.WinForms.Guna2Button();
+            this.progressBar = new Guna.UI2.WinForms.Guna2ProgressBar();
+            this.questionNumberLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SuspendLayout();
             // 
             // questionLabel
             // 
             this.questionLabel.BackColor = System.Drawing.Color.Transparent;
             this.questionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.questionLabel.Location = new System.Drawing.Point(164, 59);
+            this.questionLabel.Location = new System.Drawing.Point(314, 92);
             this.questionLabel.Name = "questionLabel";
-            this.questionLabel.Size = new System.Drawing.Size(26, 27);
+            this.questionLabel.Size = new System.Drawing.Size(90, 27);
             this.questionLabel.TabIndex = 0;
-            this.questionLabel.Text = "sa";
+            this.questionLabel.Text = "Question";
             // 
             // answerOne
             // 
             this.answerOne.AutoSize = true;
             this.answerOne.Depth = 0;
-            this.answerOne.Location = new System.Drawing.Point(45, 147);
+            this.answerOne.Location = new System.Drawing.Point(194, 179);
             this.answerOne.Margin = new System.Windows.Forms.Padding(0);
             this.answerOne.MouseLocation = new System.Drawing.Point(-1, -1);
             this.answerOne.MouseState = MaterialSkin.MouseState.HOVER;
@@ -70,7 +73,7 @@ namespace Quiz_Millionaire
             // 
             this.answerTwo.AutoSize = true;
             this.answerTwo.Depth = 0;
-            this.answerTwo.Location = new System.Drawing.Point(45, 224);
+            this.answerTwo.Location = new System.Drawing.Point(194, 256);
             this.answerTwo.Margin = new System.Windows.Forms.Padding(0);
             this.answerTwo.MouseLocation = new System.Drawing.Point(-1, -1);
             this.answerTwo.MouseState = MaterialSkin.MouseState.HOVER;
@@ -86,7 +89,7 @@ namespace Quiz_Millionaire
             // 
             this.answerThree.AutoSize = true;
             this.answerThree.Depth = 0;
-            this.answerThree.Location = new System.Drawing.Point(524, 147);
+            this.answerThree.Location = new System.Drawing.Point(784, 179);
             this.answerThree.Margin = new System.Windows.Forms.Padding(0);
             this.answerThree.MouseLocation = new System.Drawing.Point(-1, -1);
             this.answerThree.MouseState = MaterialSkin.MouseState.HOVER;
@@ -102,7 +105,7 @@ namespace Quiz_Millionaire
             // 
             this.answerFour.AutoSize = true;
             this.answerFour.Depth = 0;
-            this.answerFour.Location = new System.Drawing.Point(524, 224);
+            this.answerFour.Location = new System.Drawing.Point(784, 256);
             this.answerFour.Margin = new System.Windows.Forms.Padding(0);
             this.answerFour.MouseLocation = new System.Drawing.Point(-1, -1);
             this.answerFour.MouseState = MaterialSkin.MouseState.HOVER;
@@ -126,7 +129,7 @@ namespace Quiz_Millionaire
             this.SubmitButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.SubmitButton.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.SubmitButton.ForeColor = System.Drawing.Color.White;
-            this.SubmitButton.Location = new System.Drawing.Point(354, 338);
+            this.SubmitButton.Location = new System.Drawing.Point(483, 370);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(144, 65);
             this.SubmitButton.TabIndex = 9;
@@ -144,7 +147,7 @@ namespace Quiz_Millionaire
             this.FiftyFiftyButton.FillColor = System.Drawing.Color.Navy;
             this.FiftyFiftyButton.Font = new System.Drawing.Font("Verdana", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FiftyFiftyButton.ForeColor = System.Drawing.Color.White;
-            this.FiftyFiftyButton.Location = new System.Drawing.Point(137, 473);
+            this.FiftyFiftyButton.Location = new System.Drawing.Point(280, 505);
             this.FiftyFiftyButton.Name = "FiftyFiftyButton";
             this.FiftyFiftyButton.Size = new System.Drawing.Size(124, 52);
             this.FiftyFiftyButton.TabIndex = 10;
@@ -162,18 +165,57 @@ namespace Quiz_Millionaire
             this.FriendHelpButton.FillColor = System.Drawing.Color.Navy;
             this.FriendHelpButton.Font = new System.Drawing.Font("Verdana", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FriendHelpButton.ForeColor = System.Drawing.Color.White;
-            this.FriendHelpButton.Location = new System.Drawing.Point(561, 473);
+            this.FriendHelpButton.Location = new System.Drawing.Point(704, 505);
             this.FriendHelpButton.Name = "FriendHelpButton";
             this.FriendHelpButton.Size = new System.Drawing.Size(124, 52);
             this.FriendHelpButton.TabIndex = 11;
             this.FriendHelpButton.Text = "BF";
             this.FriendHelpButton.Click += new System.EventHandler(this.FriendHelpButton_Click);
             // 
+            // FinishQuizButton
+            // 
+            this.FinishQuizButton.Animated = true;
+            this.FinishQuizButton.BorderRadius = 10;
+            this.FinishQuizButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.FinishQuizButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.FinishQuizButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.FinishQuizButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.FinishQuizButton.FillColor = System.Drawing.Color.Firebrick;
+            this.FinishQuizButton.Font = new System.Drawing.Font("Verdana", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.FinishQuizButton.ForeColor = System.Drawing.Color.White;
+            this.FinishQuizButton.Location = new System.Drawing.Point(1056, 694);
+            this.FinishQuizButton.Name = "FinishQuizButton";
+            this.FinishQuizButton.Size = new System.Drawing.Size(124, 52);
+            this.FinishQuizButton.TabIndex = 12;
+            this.FinishQuizButton.Text = "Finish";
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(280, 624);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(548, 22);
+            this.progressBar.TabIndex = 13;
+            this.progressBar.Text = "guna2ProgressBar1";
+            this.progressBar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // questionNumberLabel
+            // 
+            this.questionNumberLabel.BackColor = System.Drawing.Color.Transparent;
+            this.questionNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.questionNumberLabel.Location = new System.Drawing.Point(112, 30);
+            this.questionNumberLabel.Name = "questionNumberLabel";
+            this.questionNumberLabel.Size = new System.Drawing.Size(81, 27);
+            this.questionNumberLabel.TabIndex = 14;
+            this.questionNumberLabel.Text = "Q 1 / 12";
+            // 
             // QuizForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(863, 565);
+            this.ClientSize = new System.Drawing.Size(1192, 758);
+            this.Controls.Add(this.questionNumberLabel);
+            this.Controls.Add(this.progressBar);
+            this.Controls.Add(this.FinishQuizButton);
             this.Controls.Add(this.FriendHelpButton);
             this.Controls.Add(this.FiftyFiftyButton);
             this.Controls.Add(this.SubmitButton);
@@ -201,5 +243,8 @@ namespace Quiz_Millionaire
         private Guna.UI2.WinForms.Guna2Button SubmitButton;
         private Guna.UI2.WinForms.Guna2Button FiftyFiftyButton;
         private Guna.UI2.WinForms.Guna2Button FriendHelpButton;
+        private Guna.UI2.WinForms.Guna2Button FinishQuizButton;
+        private Guna.UI2.WinForms.Guna2ProgressBar progressBar;
+        private Guna.UI2.WinForms.Guna2HtmlLabel questionNumberLabel;
     }
 }
