@@ -14,6 +14,23 @@ namespace Quiz_Millionaire
         private int correctAnswersCount = 0;
         private readonly List<RadioButton> radioButtons;
         private readonly static int NUMBER_OF_QUESTIONS = 12;
+        private readonly Dictionary<int, int> prizeMoneyValues = new Dictionary<int, int>
+        {
+            { 1, 500 },
+            { 2, 1000 },
+            { 3, 2000 },
+            { 4, 5000 },
+            { 5, 10000 },
+            { 6, 20000 },
+            { 7, 50000 },
+            { 8, 75000 },
+            { 9, 150000 },
+            { 10, 250000 },
+            { 11, 500000 },
+            { 12, 1000000 },
+        };
+        private int prizeMoney = 0;
+        private int guaranteedPrizeMoney = 0;
 
         public QuizForm()
         {
@@ -22,6 +39,7 @@ namespace Quiz_Millionaire
             currentQuestionNumber = 1;
             radioButtons = new List<RadioButton> { answerOne, answerTwo, answerThree, answerFour };
             questionNumberLabel.Text = $"Q {currentQuestionNumber} / {NUMBER_OF_QUESTIONS}";
+            prizeMoneyLabel.Text = "Prize: $0 ($0)";
         }
 
         private void QuizForm_Load(object sender, EventArgs e)
@@ -105,6 +123,13 @@ namespace Quiz_Millionaire
 
                     if ((bool)radioButton.Tag)
                     {
+                        if (prizeMoneyValues.TryGetValue(currentQuestionNumber, out int currentQuestionValue))
+                        {
+                            prizeMoney = currentQuestionValue;
+                            CheckGuaranteedPrizeMoney();
+                            prizeMoneyLabel.Text = $"Prize: ${prizeMoney} (${guaranteedPrizeMoney})";
+                        }
+
                         correctAnswersCount++;
                         currentQuestionNumber++;
 
@@ -118,23 +143,17 @@ namespace Quiz_Millionaire
                         else
                         {
                             questionNumberLabel.Text = "";
+                            prizeMoneyLabel.Text = "";
                             SubmitButton.Enabled = false;
+                            FinishQuizButton.Enabled = false;
                             MessageBox.Show("You've become a millionaire!", "CONGRATULATIONS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            StartForm startForm = new StartForm();
-                            Hide();
-                            startForm.ShowDialog();
-                            Close();
+                            BackToStart();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Answer isn't correct! You lost!", "Incorrect answer", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                        StartForm startForm = new StartForm();
-                        Hide();
-                        startForm.ShowDialog();
-                        Close();
+                        MessageBox.Show($"Answer isn't correct! You earned ${guaranteedPrizeMoney}!", "Incorrect answer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        BackToStart();
                     }
 
                     radioButton.Checked = false;
@@ -150,6 +169,22 @@ namespace Quiz_Millionaire
             }
         }
 
+        private void CheckGuaranteedPrizeMoney()
+        {
+            switch (currentQuestionNumber)
+            {
+                case 4:
+                    guaranteedPrizeMoney = 5000;
+                    break;
+                case 7:
+                    guaranteedPrizeMoney = 50000;
+                    break;
+                case 10:
+                    guaranteedPrizeMoney = 250000;
+                    break;
+            }
+        }
+
         private void UpdateProgressBar()
         {
             progressBar.Value = (correctAnswersCount * 100) / NUMBER_OF_QUESTIONS;
@@ -158,6 +193,20 @@ namespace Quiz_Millionaire
         private void UpdateQuestionNumberLabel()
         {
             questionNumberLabel.Text = $"Q {currentQuestionNumber} / {NUMBER_OF_QUESTIONS}";
+        }
+
+        private void FinishQuizButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"You earned ${prizeMoney}!", "Quiz finished", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            BackToStart();
+        }
+
+        private void BackToStart()
+        {
+            StartForm startForm = new StartForm();
+            Hide();
+            startForm.ShowDialog();
+            Close();
         }
     }
 }
