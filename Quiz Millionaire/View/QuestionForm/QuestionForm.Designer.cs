@@ -41,7 +41,7 @@ namespace Quiz_Millionaire
             this.difficultyTextBox = new MaterialSkin.Controls.MaterialTextBox2();
             this.areaLabel = new System.Windows.Forms.Label();
             this.areaTextBox = new MaterialSkin.Controls.MaterialTextBox2();
-            this.CreateQuestionBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.CreateQuestionButton = new Guna.UI2.WinForms.Guna2Button();
             this.UpdateQuestionButton = new Guna.UI2.WinForms.Guna2Button();
             this.updateAreaTextBox = new MaterialSkin.Controls.MaterialTextBox2();
             this.updateAreaLabel = new System.Windows.Forms.Label();
@@ -51,6 +51,7 @@ namespace Quiz_Millionaire
             this.updateTextLabel = new System.Windows.Forms.Label();
             this.updateTextTextBox = new MaterialSkin.Controls.MaterialTextBox2();
             this.DeleteQuestionButton = new Guna.UI2.WinForms.Guna2Button();
+            this.AnswersButton = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.QuestionsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -230,22 +231,22 @@ namespace Quiz_Millionaire
             this.areaTextBox.TrailingIcon = null;
             this.areaTextBox.UseSystemPasswordChar = false;
             // 
-            // CreateQuestionBtn
+            // CreateQuestionButton
             // 
-            this.CreateQuestionBtn.BorderRadius = 10;
-            this.CreateQuestionBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.CreateQuestionBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.CreateQuestionBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.CreateQuestionBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.CreateQuestionBtn.FillColor = System.Drawing.Color.RoyalBlue;
-            this.CreateQuestionBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.CreateQuestionBtn.ForeColor = System.Drawing.Color.White;
-            this.CreateQuestionBtn.Location = new System.Drawing.Point(310, 667);
-            this.CreateQuestionBtn.Name = "CreateQuestionBtn";
-            this.CreateQuestionBtn.Size = new System.Drawing.Size(156, 61);
-            this.CreateQuestionBtn.TabIndex = 13;
-            this.CreateQuestionBtn.Text = "Create";
-            this.CreateQuestionBtn.Click += new System.EventHandler(this.CreateQuestionBtn_Click);
+            this.CreateQuestionButton.BorderRadius = 10;
+            this.CreateQuestionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.CreateQuestionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.CreateQuestionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.CreateQuestionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.CreateQuestionButton.FillColor = System.Drawing.Color.RoyalBlue;
+            this.CreateQuestionButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CreateQuestionButton.ForeColor = System.Drawing.Color.White;
+            this.CreateQuestionButton.Location = new System.Drawing.Point(310, 667);
+            this.CreateQuestionButton.Name = "CreateQuestionButton";
+            this.CreateQuestionButton.Size = new System.Drawing.Size(156, 61);
+            this.CreateQuestionButton.TabIndex = 13;
+            this.CreateQuestionButton.Text = "Create";
+            this.CreateQuestionButton.Click += new System.EventHandler(this.CreateQuestionButton_Click);
             // 
             // UpdateQuestionButton
             // 
@@ -405,11 +406,29 @@ namespace Quiz_Millionaire
             this.DeleteQuestionButton.Text = "Delete";
             this.DeleteQuestionButton.Click += new System.EventHandler(this.DeleteQuestionButton_Click);
             // 
+            // AnswersButton
+            // 
+            this.AnswersButton.BorderRadius = 10;
+            this.AnswersButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.AnswersButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.AnswersButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.AnswersButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.AnswersButton.FillColor = System.Drawing.Color.Teal;
+            this.AnswersButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AnswersButton.ForeColor = System.Drawing.Color.White;
+            this.AnswersButton.Location = new System.Drawing.Point(1751, 667);
+            this.AnswersButton.Name = "AnswersButton";
+            this.AnswersButton.Size = new System.Drawing.Size(156, 61);
+            this.AnswersButton.TabIndex = 23;
+            this.AnswersButton.Text = "Answers";
+            this.AnswersButton.Click += new System.EventHandler(this.AnswersButton_Click);
+            // 
             // QuestionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1945, 766);
+            this.Controls.Add(this.AnswersButton);
             this.Controls.Add(this.DeleteQuestionButton);
             this.Controls.Add(this.UpdateQuestionButton);
             this.Controls.Add(this.updateAreaTextBox);
@@ -419,7 +438,7 @@ namespace Quiz_Millionaire
             this.Controls.Add(this.updateQuestionLabel);
             this.Controls.Add(this.updateTextLabel);
             this.Controls.Add(this.updateTextTextBox);
-            this.Controls.Add(this.CreateQuestionBtn);
+            this.Controls.Add(this.CreateQuestionButton);
             this.Controls.Add(this.areaTextBox);
             this.Controls.Add(this.areaLabel);
             this.Controls.Add(this.difficultyTextBox);
@@ -447,7 +466,7 @@ namespace Quiz_Millionaire
         private MaterialSkin.Controls.MaterialTextBox2 difficultyTextBox;
         private System.Windows.Forms.Label areaLabel;
         private MaterialSkin.Controls.MaterialTextBox2 areaTextBox;
-        private Guna.UI2.WinForms.Guna2Button CreateQuestionBtn;
+        private Guna.UI2.WinForms.Guna2Button CreateQuestionButton;
         private Guna.UI2.WinForms.Guna2Button UpdateQuestionButton;
         private MaterialSkin.Controls.MaterialTextBox2 updateAreaTextBox;
         private System.Windows.Forms.Label updateAreaLabel;
@@ -457,5 +476,6 @@ namespace Quiz_Millionaire
         private System.Windows.Forms.Label updateTextLabel;
         private MaterialSkin.Controls.MaterialTextBox2 updateTextTextBox;
         private Guna.UI2.WinForms.Guna2Button DeleteQuestionButton;
+        private Guna.UI2.WinForms.Guna2Button AnswersButton;
     }
 }

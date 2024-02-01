@@ -106,6 +106,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\AnswerForm\AnswerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AnswerForm\AnswerForm.Designer.cs">
+      <DependentUpon>AnswerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Answer.cs" />
     <Compile Include="Controller\Database\DatabaseConfig.cs" />
     <Compile Include="Controller\Database\DatabaseManager.cs" />
@@ -131,6 +137,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\AnswerForm\AnswerForm.resx">
+      <DependentUpon>AnswerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\QuestionForm\QuestionForm.resx">
       <DependentUpon>QuestionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,8 +172,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\AnswerForm\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

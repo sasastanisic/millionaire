@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 
 namespace Quiz_Millionaire
@@ -7,13 +8,16 @@ namespace Quiz_Millionaire
     {
         private readonly string connectionString = DatabaseManager.connectionString;
 
-        public Question GetRandomQuestion()
+        public Question GetRandomQuestion(int currentQuestionNumber)
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
 
-                string query = "SELECT * FROM question ORDER BY RAND() LIMIT 1";
+                int difficulty = (currentQuestionNumber - 1) / 3 + 1;
+                difficulty = Math.Min(difficulty, 4);
+
+                string query = $"SELECT * FROM question WHERE difficulty = {difficulty} ORDER BY RAND() LIMIT 1";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {

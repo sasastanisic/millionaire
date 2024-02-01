@@ -31,7 +31,14 @@ namespace Quiz_Millionaire
 
                             foreach (var property in properties)
                             {
-                                property.SetValue(entity, reader[property.Name] is DBNull ? null : reader[property.Name]);
+                                object valueFromDatabase = reader[property.Name] is DBNull ? null : reader[property.Name];
+
+                                if (property.Name == "CorrectAnswer" && valueFromDatabase != null)
+                                {
+                                    valueFromDatabase = ConvertSByteToBoolean(valueFromDatabase);
+                                }
+
+                                property.SetValue(entity, valueFromDatabase);
                             }
 
                             entities.Add(entity);
@@ -107,6 +114,16 @@ namespace Quiz_Millionaire
                     command.ExecuteNonQuery();
                 }
             }
+        }
+
+        private bool ConvertSByteToBoolean(object value)
+        {
+            if (value is sbyte sbyteValue)
+            {
+                return sbyteValue != 0;
+            }
+
+            return false;
         }
     }
 }

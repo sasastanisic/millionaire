@@ -53,7 +53,7 @@ namespace Quiz_Millionaire
 
         private void LoadNextQuestion()
         {
-            currentQuestion = quizController.GetRandomQuestion();
+            currentQuestion = quizController.GetRandomQuestion(currentQuestionNumber);
             currentAnswers = quizController.GetAnswersForQuestion(currentQuestion.Id);
 
             questionLabel.Text = currentQuestion.Text;

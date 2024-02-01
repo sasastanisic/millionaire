@@ -23,7 +23,7 @@ namespace Quiz_Millionaire
             QuestionsDataGridView.DataSource = questions;
         }
 
-        private void CreateQuestionBtn_Click(object sender, EventArgs e)
+        private void CreateQuestionButton_Click(object sender, EventArgs e)
         {
             List<MaterialTextBox2> textBoxes = new List<MaterialTextBox2> { textTextBox, difficultyTextBox, areaTextBox };
 
@@ -153,6 +153,14 @@ namespace Quiz_Millionaire
             selectedQuestionId = 0;
 
             RefreshDataGridView(QuestionsDataGridView);
+        }
+
+        private void AnswersButton_Click(object sender, EventArgs e)
+        {
+            AnswerForm answerForm = new AnswerForm();
+            Hide();
+            answerForm.ShowDialog();
+            Show();
         }
 
         private bool AreFieldsEmpty(List<MaterialTextBox2> textBoxes)
